@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelDiscos.java,v 1.4 2006/08/10 20:04:35 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -47,7 +47,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     private static final String CAMBIAR_DISCO = "CambiarDisco";
 
     /**
-     * Comando para el botón para agregar un disco
+     * Comando para el botï¿½n para agregar un disco
      */
     private static final String AGREGAR_DISCO = "AgregarDisco";
 
@@ -90,7 +90,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     private JLabel etiquetaTituloGenero;
 
     /**
-     * Es el campo con el género del disco
+     * Es el campo con el gï¿½nero del disco
      */
     private JTextField txtGenero;
 
@@ -105,12 +105,12 @@ public class PanelDiscos extends JPanel implements ActionListener
     private JTextField txtPrecio;
 
     /**
-     * Es el botón para mostrar el diálogo para agregar un nuevo disco
+     * Es el botï¿½n para mostrar el diï¿½logo para agregar un nuevo disco
      */
     private JButton botonAgregarDisco;
 
     /**
-     * Es el campo que muestra la imágen del disco
+     * Es el campo que muestra la imï¿½gen del disco
      */
     private JLabel etiquetaImagen;
 
@@ -119,7 +119,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Construye el panel para la información de un disco de la discotienda
+     * Construye el panel para la informaciï¿½n de un disco de la discotienda
      * @param ventanaPrincipal es una referencia a la clase principal de la interfaz
      * @param discos unna lista con los nombres de los discos que se tienen en la discotienda
      */
@@ -147,7 +147,7 @@ public class PanelDiscos extends JPanel implements ActionListener
         panelDatosDisco.add( etiquetaTituloArtista );
         panelDatosDisco.add( txtArtista );
 
-        etiquetaTituloGenero = new JLabel( "Género: " );
+        etiquetaTituloGenero = new JLabel( "Gï¿½nero: " );
         txtGenero = new JTextField( 10 );
         txtGenero.setEditable( false );
         txtGenero.setFont( txtGenero.getFont( ).deriveFont( Font.PLAIN ) );
@@ -178,7 +178,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -203,7 +203,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     }
 
     /**
-     * Actualiza la información en el panel con la lista de discos
+     * Actualiza la informaciï¿½n en el panel con la lista de discos
      * @param discos la lista de discos a desplegar
      */
     public void refrescarDiscos( ArrayList discos )
@@ -218,7 +218,7 @@ public class PanelDiscos extends JPanel implements ActionListener
 
     /**
      * Ejecuta las acciones asociadas a los eventos
-     * @param evento es el evento del click sobre un botón
+     * @param evento es el evento del click sobre un botï¿½n
      */
     public void actionPerformed( ActionEvent evento )
     {
@@ -234,5 +234,7 @@ public class PanelDiscos extends JPanel implements ActionListener
             principal.cambiarDiscoSeleccionado( nombreDisco );
         }
     }
+    
 
 }
+

@@ -526,9 +526,10 @@ public class Discotienda
     		Disco miDisco = (Disco)discos.get(i);
     		
     		// escribir con la pluma la información requerida
-    		pluma.println("Nombre: " +miDisco.darNombreDisco()+
-    					  "Artista: " + miDisco.darArtista()+
-    					  "Género: " +miDisco.darGenero());
+    		pluma.println(" Nombre: " +miDisco.darNombreDisco()+
+    					  " Artista: " + miDisco.darArtista()+
+    					  " Género: " +miDisco.darGenero()+
+    					  " Imagen: " +miDisco.darImagen());
     	}
     	
     	// cerrar la pluma 
@@ -572,14 +573,72 @@ public class Discotienda
     
     if( generoDiscoEncontrado > 0 && precioDiscoEncontrado > 0){
     	
-    	JOptionPane.showMessageDialog(null, "Genero Disco Encontrado");
+    	JOptionPane.showMessageDialog(null, "Genero  Encontrado");
     	
     }else if(generoDiscoEncontrado == 0 || precioDiscoEncontrado == 0){
-    	JOptionPane.showMessageDialog(null, "El disco buscado no coincide con los datos necessarios");
+    	JOptionPane.showMessageDialog(null, "Genero buscado no coincide con los datos necessarios");
     }
     
     pluma.close();
     }
+    
+    public void generarReporteDiscosCantidadCanciones(int pcantidadCanciones) throws FileNotFoundException,IOException
+    {
+    	int hayCanciones = 0;
+    	for(int a=0; a<discos.size(); a++)
+    	{
+    		Disco miDisco = (Disco)discos.get(a);
+    		
+    		if(miDisco.darNombresCanciones().size() < pcantidadCanciones)
+    		{
+    			hayCanciones++;
+    		}
+    	}
+    	
+    	if(hayCanciones == 0)
+    	{
+    		throw new IOException("No existen discos que contengan menos de " + pcantidadCanciones + " canciones.");
+    	}
+    	if(hayCanciones < 0)
+    	{
+    		throw new IOException("No existen discos que contengan menos de " + pcantidadCanciones + " canciones.");
+    	}
+        File archivo = new File("./data/reporteDeDiscos.txt");
+        	
+        PrintWriter pluma = new PrintWriter(archivo);
+        	
+        pluma.println("Reporte de discos con  menos de  " + pcantidadCanciones + " canciones");
+        pluma.println("-----------------------------------------------------------------------");
+        	
+        for(int i=0; i<discos.size(); i++)
+        {
+            Disco miDisco = (Disco)discos.get(i);
+        		
+            if(miDisco.darNombresCanciones().size() < pcantidadCanciones)
+            {
+            	pluma.println("");
+                pluma.println("DISCO: " + miDisco.darNombreDisco() + "     ARTISTA: " + miDisco.darArtista());
+                pluma.println("CANCIONES:");
+                pluma.println("-----------------");
+
+                for(int j = 0; j<miDisco.darNombresCanciones().size(); j++)
+                {
+            
+                	Cancion cancion = miDisco.darCancion(miDisco.darNombresCanciones().get(j).toString());
+                	pluma.println("Nombre                            Precio                              Unidades Vendidas");
+                    pluma.println("--------------------------------------------------------------------------------------------");
+                    pluma.println(cancion.darNombre()+ "                            " + cancion.darPrecio()+ "                            " + cancion.darUnidadesVendidas());
+                    pluma.println("--------------------------------------------------------------------------------------------");
+                }
+
+                pluma.println("");
+            }
+        }
+
+        // Cerrar la pluma.
+        pluma.close();
+    }
+   
     
     // -----------------------------------------------------------------
     // Puntos de Extensi�n
@@ -606,11 +665,20 @@ public class Discotienda
      */
     public String metodo2( )
     {
-        try {
-			informeDiscosCaros();
-			return "Reporte Discos generado correctamente";
-		} catch (FileNotFoundException e) {
-			return "Error fatal ;( " + e.getMessage();
+    	try {
+    		
+    		String datosUsuario = JOptionPane.showInputDialog(null, "Ingrese el numero de cannciones que desea el reporte");
+    		if(datosUsuario != null)
+    		{
+        		int datosUsuarios = Integer.parseInt(datosUsuario);
+        		generarReporteDiscosCantidadCanciones(datosUsuarios);
+
+    			return "Reporte Generado.";
+    		}else {
+    			return "Vuelva pronto.";
+    		}
+		} catch (Exception e) {
+			return "Error:" + "\n" + "(" + e.getMessage() + ")";
 		}
 			
 		}
@@ -624,6 +692,7 @@ public class Discotienda
     public String metodo3( )
     {
         return "respuesta 3";
+
     }
 
     /**

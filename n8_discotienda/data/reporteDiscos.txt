@@ -1,6 +1,6 @@
 Reporte de discos
 =================
-Nombre: Confessions on a Dance FloorArtista: MadonnaGénero: Pop
-Nombre: Push the ButtonArtista: The Chemical BrothersGénero: Electrónica
-Nombre: Is This ItArtista: The StrokesGénero: Rock
-Nombre: ElephantArtista: The White StripesGénero: Rock
+ Nombre: Confessions on a Dance Floor Artista: Madonna Género: Pop Imagen: data/imagenes/madonna.jpg
+ Nombre: Push the Button Artista: The Chemical Brothers Género: Electrónica Imagen: data/imagenes/chemical.jpg
+ Nombre: Is This It Artista: The Strokes Género: Rock Imagen: data/imagenes/isThisIt.jpg
+ Nombre: Elephant Artista: The White Stripes Género: Rock Imagen: data/imagenes/elephant.jpg
